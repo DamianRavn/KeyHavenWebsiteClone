@@ -4,8 +4,10 @@ import { NavItem, NavLink } from 'mdbreact';
 export const NavigationItem = (props)=>
 {
     return (
-    <NavItem active>
-       <NavLink to="#">{props.link}</NavLink>
+    <NavItem>
+       <NavLink
+       exact
+       to={"/" + props.link}>{props.name}</NavLink>
     </NavItem>
     );
 }

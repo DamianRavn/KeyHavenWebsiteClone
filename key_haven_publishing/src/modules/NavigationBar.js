@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {NavigationItem} from "./NavigationItem";
-import NavigationList from "./NavigationList";
 import SearchForm from "./SearchForm";
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem } from 'mdbreact';
-import { BrowserRouter as Router } from 'react-router-dom';
+
 
 class NavigationBar extends Component 
 {
@@ -14,44 +13,47 @@ class NavigationBar extends Component
         {
             collapse: false,
             isWideEnough: false,
-            NavList: ["Home", "books", "reviews", "conferences", "about", "keep up to date"]
         };
-    this.onClick = this.onClick.bind(this);
+        
+        this.onClick = this.onClick.bind(this);
     }
 
-    onClick(){
-        this.setState({
+    onClick()
+    {
+        this.setState(
+        {
             collapse: !this.state.collapse,
         });
     }
     render() {
         return (
-            <Router>
+            
                 <Navbar className="bg-primary" dark expand="md" scrolling>
                     <NavbarBrand href="/">
                     </NavbarBrand>
-                    { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
+                    { !this.state.isWideEnough && <NavbarToggler onClick = {this.onClick } />}
                     <Collapse isOpen = { this.state.collapse } navbar>
                         <NavbarNav right>
-                            <NavigationList>
-                                {this.state.NavList.map(item =>
-                                {
-                                    return (
-                                        <NavigationItem
-                                        link = {item}
-                                        />
-                                    );
-                                })}
+                        {/*all the items in the navbar. Add to state to add more*/}
+                            {this.props.NavList.map(item =>
+                            {
+                                return (
+                                    <NavigationItem
+                                    key = {item.link}
+                                    name = {item.name}
+                                    link = {item.link}
+                                    />
+                                );
+                            })}
 
-                                <NavItem>
-                                    <SearchForm/>
-                                </NavItem>
-                            </NavigationList>
+                            <NavItem>
+                                <SearchForm/>
+                            </NavItem>
+
                         </NavbarNav>
-
                     </Collapse>
                 </Navbar>
-            </Router>
+                        
         );
     }
 }
