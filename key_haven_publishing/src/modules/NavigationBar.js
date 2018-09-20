@@ -45,7 +45,8 @@ class NavigationBar extends Component
                                     />
                                 );
                             })}
-
+                            
+                            {/*The search form*/}
                             <NavItem>
                                 <SearchForm/>
                             </NavItem>

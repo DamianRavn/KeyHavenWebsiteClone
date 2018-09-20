@@ -1,10 +1,35 @@
 import React from "react"
+import Logo from "../Images/Logo.PNG";
+import HeaderNavigation from "./HeaderNavigation";
+import NavigationBar from "./NavigationBar";
 
-export const Header = ()=>
+export const Header = (props)=>
 {
     return(
-        <h1>
-            <a href="http://www.khpplc.co.uk/" title="Key Haven Publications Ltd.">Key Haven Publications Ltd.</a>
-        </h1>
+        <div>
+            <a 
+            href="http://www.khpplc.co.uk/" 
+            title="Key Haven Publications Ltd."
+            >
+            <img 
+            src = {Logo}
+            width = "207"
+            height = "90"
+            
+            />
+            </a>
+            <div>
+                <HeaderNavigation 
+                NavHeaderList = {props.NavHeaderList}
+                />
+            </div>
+
+            <NavigationBar
+            NavList = {props.NavBarList}
+            />
+            
+        </div>
+
+        
     )
 }

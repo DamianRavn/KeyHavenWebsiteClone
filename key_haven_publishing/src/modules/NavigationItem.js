@@ -7,7 +7,7 @@ export const NavigationItem = (props)=>
     <NavItem>
        <NavLink
        exact
-       to={"/" + props.link}>{props.name}</NavLink>
+       to={props.link}>{props.name}</NavLink>
     </NavItem>
     );
 }
