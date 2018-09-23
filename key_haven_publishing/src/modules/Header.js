@@ -2,13 +2,14 @@ import React from "react"
 import Logo from "../Images/Logo.PNG";
 import HeaderNavigation from "./HeaderNavigation";
 import NavigationBar from "./NavigationBar";
+import { Link } from 'react-router-dom';
 
 export const Header = (props)=>
 {
     return(
         <div>
-            <a 
-            href="http://www.khpplc.co.uk/" 
+            <Link 
+            to="/" 
             title="Key Haven Publications Ltd."
             >
             <img 
@@ -17,15 +18,14 @@ export const Header = (props)=>
             height = "90"
             
             />
-            </a>
-            <div>
-                <HeaderNavigation 
-                NavHeaderList = {props.NavHeaderList}
-                />
-            </div>
+            </Link>
+
+            <HeaderNavigation 
+            NavHeaderList = {props.NavHeaderList}
+            />
 
             <NavigationBar
-            NavList = {props.NavBarList}
+            NavBarList = {props.NavBarList}
             />
             
         </div>

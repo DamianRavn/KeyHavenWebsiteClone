@@ -27,7 +27,7 @@ class NavigationBar extends Component
     }
     render() {
         return (
-            
+            <div>
                 <Navbar className="bg-primary" dark expand="md" scrolling>
                     <NavbarBrand href="/">
                     </NavbarBrand>
@@ -35,13 +35,13 @@ class NavigationBar extends Component
                     <Collapse isOpen = { this.state.collapse } navbar>
                         <NavbarNav right>
                         {/*all the items in the navbar. Add to state to add more*/}
-                            {this.props.NavList.map(item =>
+                            {this.props.NavBarList.map(navItem =>
                             {
                                 return (
                                     <NavigationItem
-                                    key = {item.link}
-                                    name = {item.name}
-                                    link = {item.link}
+                                    key = {navItem.link}
+                                    name = {navItem.name}
+                                    link = {navItem.link}
                                     />
                                 );
                             })}
@@ -54,6 +54,8 @@ class NavigationBar extends Component
                         </NavbarNav>
                     </Collapse>
                 </Navbar>
+            </div>
+            
                         
         );
     }

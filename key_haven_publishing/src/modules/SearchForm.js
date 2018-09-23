@@ -36,7 +36,7 @@ class SearchForm extends Component
         return (
             <form className="form-inline md-form mt-0">
                 <input 
-                className="form-control mr-sm-2 mb-0 text-white" 
+                className="form-control mr-sm-2 mb-0" 
                 type="text" 
                 value={this.state.input_text}
                 placeholder="Search" 
