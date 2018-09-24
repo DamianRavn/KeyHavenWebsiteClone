@@ -9,6 +9,7 @@ const HeaderNavigation = (props)=>
                 {
                     return(
                         <Link 
+                        key = {navItem.link}
                         to={navItem.link}
                         className = "btn btn-primary"
                         type = "button"

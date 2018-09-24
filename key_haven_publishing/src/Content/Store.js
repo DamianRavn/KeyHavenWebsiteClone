@@ -9,17 +9,13 @@ const Store = (props)=>
             <ListDisplayChildren 
             class = "d-flex flex-wrap"
             >
-                {props.items.map(item => 
+                {props.bookItems.map(bookItem => 
                 {
                     return (
                         <StoreItems 
-                        id = {item.id}
-                        image = {item.image}
-                        title = {item.title}
-                        edition = {item.edition}
-                        author = {item.author}
-                        price = {item.price}
-                        addToBasket = {props.addToBasket}
+                        key = {bookItem.isbn}
+                        BookObject = {bookItem}
+                        AddToBasket = {props.AddToBasket}
                         />
                     );
                 })}

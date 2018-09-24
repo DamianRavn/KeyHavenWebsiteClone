@@ -1,5 +1,4 @@
 import React from "react"
-import Logo from "../Images/Logo.PNG";
 import HeaderNavigation from "./HeaderNavigation";
 import NavigationBar from "./NavigationBar";
 import { Link } from 'react-router-dom';
@@ -13,7 +12,7 @@ export const Header = (props)=>
             title="Key Haven Publications Ltd."
             >
             <img 
-            src = {Logo}
+            src = "/Logo.PNG"
             width = "207"
             height = "90"
             

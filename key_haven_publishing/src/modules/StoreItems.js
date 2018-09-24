@@ -10,23 +10,26 @@ const StoreItems = (props)=>
             <div className="card">
                 <img 
                 className="img-responsive" 
-                src={props.image}
-                width = "70"
-                height = "140"
+                src={props.BookObject.image}
+                width = "80"
+                height = "110"
                 />
             </div>
             <div className="card-body p-2">
                 <h5 className="card-title">
-                    <small>{props.title}</small>
+                    <small><strong>{props.BookObject.title}</strong></small>
                 </h5>
                 <p className="card-text">
-                    <small>{props.author}</small>
+                    <small>{props.BookObject.edition} Edition</small>
+                </p>
+                <p className="card-text">
+                    <small>{props.BookObject.author}</small>
                 </p>
             </div>
             <div className="card-footer p-2 bg-white border-0 ">
                 <div className="text-right">
                     <span>
-                        <strong>kr. {props.price}</strong>
+                        <strong>kr. {props.BookObject.price}</strong>
                     </span>
                 </div>
             </div>
@@ -36,7 +39,7 @@ const StoreItems = (props)=>
                         className="btn btn-primary btn-sm btn-block"
                         onClick={function(e) 
                         {
-                            props.buyItem(props.id);
+                            props.FunctionList.AddToBasket(props.BookObject);
                         }}
                     >
                         Add to Basket

@@ -2,21 +2,21 @@ import React from "react"
 import Store from "./Store";
 import Cart from "./Cart";
 
-import DefaultImage from "../Images/DefaultImage.jpg";
-
 class Books extends React.Component
 {
-    
     constructor(props)
     {
         super(props);
         this.state =
         {
             Books: [
-                {ISBN: "1", image: DefaultImage, title: "Taxation of Non-Residents and Foreign Domiciliaries", edition: "17th", author: "James Kessler QC", price: "350.00"},
-                {ISBN: "2", image: DefaultImage, title: "Taxation of Non-Residents and Foreign Domiciliaries", edition: "18th", author: "James Kessler QC", price: "200.00"},
-                {ISBN: "3", image: DefaultImage, title: "Taxation of Non-Residents and Foreign Domiciliaries", edition: "19th", author: "James Kessler QC", price: "150.00"},
-                {ISBN: "4", image: DefaultImage, title: "Taxation of Non-Residents and Foreign Domiciliaries", edition: "120th", author: "James Kessler QC", price: "5.00"},]
+                {isbn: "1", image: "/DefaultImage.jpg", title: "Taxation of Non-Residents and Foreign Domiciliaries", edition: "17th", author: "James Kessler QC", price: "350.00"},
+                {isbn: "2", image: "/DefaultImage.jpg", title: "Taxation of Non-Residents and Foreign Domiciliaries", edition: "18th", author: "James Kessler QC", price: "200.00"},
+                {isbn: "3", image: "/DefaultImage.jpg", title: "Taxation of Non-Residents and Foreign Domiciliaries", edition: "19th", author: "James Kessler QC", price: "150.00"},
+                {isbn: "4", image: "/DefaultImage.jpg", title: "Taxation of Non-Residents and Foreign Domiciliaries", edition: "120th", author: "James Kessler QC", price: "5.00"},
+                {isbn: "5", image: "/DefaultImage.jpg", title: "Taxation of Non-Residents and Foreign Domiciliaries", edition: "120th", author: "James Kessler QC", price: "5.00"},
+                {isbn: "6", image: "/DefaultImage.jpg", title: "Taxation of Non-Residents and Foreign Domiciliaries", edition: "120th", author: "James Kessler QC", price: "5.00"},
+                {isbn: "7", image: "/DefaultImage.jpg", title: "Taxation of Non-Residents and Foreign Domiciliaries", edition: "120th", author: "James Kessler QC", price: "5.00"},]
         }
     }
 
@@ -26,13 +26,16 @@ class Books extends React.Component
             <div className="row">
                 <div className="col-sm-8">
                 <Store 
-                items = {this.state.Books}
-                addToBasket = {this.props.addToBasket}
+                bookItems = {this.state.Books}
+                AddToBasket = {this.props.FunctionList}
                 />
                 </div>
                 
                 <div className="col-4">
-                <Cart />
+                <Cart
+                CartList = {this.props.CartList}
+                FunctionList = {this.props.FunctionList}
+                />
                 </div>
             </div>
         );

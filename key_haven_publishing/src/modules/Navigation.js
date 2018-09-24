@@ -5,13 +5,15 @@ export const Navigation = (props)=>
 {
     return(
         <Switch>
-            {props.NavBarList.map(page =>
+            {props.NavList.map(page =>
             {
                 return(
                     <Route 
+                    key = {page.link}
                     exact path ={page.link} 
                     component ={page.content}
-                    key = {page.link}
+                    CartList = {props.CartList}
+                    FunctionList = {props.FunctionList}
                     />
                 );
             })}
