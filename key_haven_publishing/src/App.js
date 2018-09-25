@@ -6,6 +6,7 @@ import Books from "./Content/Books";
 import Cart from "./Content/Cart";
 import {Reviews} from "./Content/Reviews";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import autobind from 'class-autobind';
 
 class NavigationObject
 {
@@ -22,6 +23,7 @@ class App extends Component
   constructor(props)
   {
     super(props);
+    autobind(this);
     this.state=
     {
       NavBarList: [
@@ -41,15 +43,13 @@ class App extends Component
 
       CartList: [],
     }
-    this.getStateFromLocalStorage = this.getStateFromLocalStorage.bind(this);
-    this.AddToBasket = this.AddToBasket.bind(this);
-    this.RemoveFromBasket = this.RemoveFromBasket.bind(this);
   }
 
   componentDidMount()
   {
     this.getStateFromLocalStorage();
   }
+
   getStateFromLocalStorage()
   {
     if(localStorage.hasOwnProperty("CartList"))
@@ -92,12 +92,6 @@ class App extends Component
 
   render() 
   {
-    const FunctionList = 
-    { 
-      AddToBasket: this.AddToBasket(object), 
-      RemoveFromBasket: this.RemoveFromBasket(isbn)
-    };
-
     return (
       <div className="App container-fluid">
         <Header 
@@ -108,7 +102,8 @@ class App extends Component
         <Navigation
         NavList = {[...this.state.NavBarList, ...this.state.NavHeaderList]}
         CartList = {this.state.CartList}
-        FunctionList = {FunctionList}
+        AddToBasket = {this.AddToBasket}
+        RemoveFromBasket = {this.RemoveFromBasket}
         />
 
         {/*TODO: Footer */}

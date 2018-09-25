@@ -14,7 +14,8 @@ export const Navigation = (props)=>
                     /*render allows attributes to be given to the content*/
                     render = {() => <page.content
                     CartList = {props.CartList}
-                    FunctionList = {props.FunctionList}
+                    AddToBasket = {props.AddToBasket}
+                    RemoveFromBasket = {props.RemoveFromBasket}
                     />}
                     />
                 );

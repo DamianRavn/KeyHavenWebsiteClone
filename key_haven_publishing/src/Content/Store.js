@@ -7,7 +7,7 @@ const Store = (props)=>
     return (
         <div className="border mt-3 p-2">
             <ListDisplayChildren 
-            class = "d-flex flex-wrap"
+            class_name = "d-flex flex-wrap"
             >
                 {props.bookItems.map(bookItem => 
                 {
@@ -15,6 +15,7 @@ const Store = (props)=>
                         <StoreItems 
                         key = {bookItem.isbn}
                         BookObject = {bookItem}
+                        CartList = {props.CartList}
                         AddToBasket = {props.AddToBasket}
                         />
                     );

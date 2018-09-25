@@ -1,4 +1,5 @@
 import React from "react";
+import {CartItem} from "../modules/CartItem";
 import ListDisplayChildren from "../modules/ListDisplayChildren";
 
 const Cart = (props)=>
@@ -6,20 +7,16 @@ const Cart = (props)=>
     return(
         <div className="border mt-3 p-2">
             <ListDisplayChildren 
-            class = "d-flex flex-wrap"
+            class_name = "d-flex flex-wrap"
             >
-            {console.log(props.CartList)}
-                {props.CartList.map(item => 
+                {props.CartList.map((item, index )=> 
                 {
                     return (
-                    <div className = "card" key = {item.isbn}>
-                        <div className = "card-body">
-                            <h5 class="card-title">{item.title}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{item.edition}</h6>
-                            <p class="card-text">{item.author}</p>
-                            <button>Remove from basket</button>
-                        </div>
-                    </div>
+                    <CartItem
+                    key = {index}
+                    item = {item}
+                    RemoveFromBasket = {props.RemoveFromBasket}
+                    />
                     );
                 })}
             </ListDisplayChildren>

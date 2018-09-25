@@ -27,14 +27,15 @@ class Books extends React.Component
                 <div className="col-sm-8">
                 <Store 
                 bookItems = {this.state.Books}
-                AddToBasket = {this.props.FunctionList}
+                CartList = {this.props.CartList}
+                AddToBasket = {this.props.AddToBasket}
                 />
                 </div>
                 
                 <div className="col-4">
                 <Cart
                 CartList = {this.props.CartList}
-                FunctionList = {this.props.FunctionList}
+                RemoveFromBasket = {this.props.RemoveFromBasket}
                 />
                 </div>
             </div>

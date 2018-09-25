@@ -37,10 +37,8 @@ const StoreItems = (props)=>
                 <div className="text-right">
                     <button
                         className="btn btn-primary btn-sm btn-block"
-                        onClick={function(e) 
-                        {
-                            props.FunctionList.AddToBasket(props.BookObject);
-                        }}
+                        onClick = {()=>{props.AddToBasket(props.BookObject)}}
+                        
                     >
                         Add to Basket
                     </button>
