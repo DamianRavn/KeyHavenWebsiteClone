@@ -11,9 +11,11 @@ export const Navigation = (props)=>
                     <Route 
                     key = {page.link}
                     exact path ={page.link} 
-                    component ={page.content}
+                    /*render allows attributes to be given to the content*/
+                    render = {() => <page.content
                     CartList = {props.CartList}
                     FunctionList = {props.FunctionList}
+                    />}
                     />
                 );
             })}

@@ -7,6 +7,15 @@ import Cart from "./Content/Cart";
 import {Reviews} from "./Content/Reviews";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+class NavigationObject
+{
+  constructor(link, name, content)
+  {
+    this.link = link;
+    this.name = name;
+    this.content = content;
+  }
+}
 
 class App extends Component 
 {
@@ -16,19 +25,18 @@ class App extends Component
     this.state=
     {
       NavBarList: [
-        {link: "/", name: "Home", content: Home},
-        {link: "/books", name: "Books", content: Books},
-        {link: "/reviews", name: "Reviews", content: Reviews},
-        {link: "/conferences", name: "Conferences", content: Home},
+        new NavigationObject("/", "Home", Home),
+        new NavigationObject("/books", "Books", Books),
+        new NavigationObject("/reviews", "Reviews", Reviews),
+        /*{link: "/conferences", name: "Conferences", content: Home},
         {link: "/about", name: "About", content: Home},
-        {link: "/keep-up-to-date", name: "Keep up to date", content: Home},
+        {link: "/keep-up-to-date", name: "Keep up to date", content: Home},*/
       ],
-
+     
       NavHeaderList: [
-        {link: "/login", name: "Login", content: Home},
-        {link: "/contact", name: "Contact", content: Home},
-        {link: "/cart", name: "Cart", content: Cart},
-        
+        new NavigationObject("/login", "Login", Home),
+        new NavigationObject("/contact", "Contact", Home),
+        new NavigationObject("/cart", "Cart", Cart),
       ],
 
       CartList: [],
@@ -57,7 +65,6 @@ class App extends Component
       }
     }
   }
-
   AddToBasket(object)
   {
     const newCartList = [... this.state.CartList, object];
@@ -87,8 +94,8 @@ class App extends Component
   {
     const FunctionList = 
     { 
-      AddToBasket: this.AddToBasket, 
-      RemoveFromBasket: this.RemoveFromBasket
+      AddToBasket: this.AddToBasket(object), 
+      RemoveFromBasket: this.RemoveFromBasket(isbn)
     };
 
     return (

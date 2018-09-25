@@ -8,6 +8,7 @@ const Cart = (props)=>
             <ListDisplayChildren 
             class = "d-flex flex-wrap"
             >
+            {console.log(props.CartList)}
                 {props.CartList.map(item => 
                 {
                     return (
