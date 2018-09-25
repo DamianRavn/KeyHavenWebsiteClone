@@ -7,14 +7,12 @@ const StoreItems = (props)=>
         className="card-group p-2 " 
         style={{ width: "11rem" }}
         >
-            <div className="card">
-                <img 
+            <img 
                 className="img-responsive" 
                 src={props.BookObject.image}
                 width = "80"
                 height = "110"
                 />
-            </div>
             <div className="card-body p-2">
                 <h5 className="card-title">
                     <small><strong>{props.BookObject.title}</strong></small>
