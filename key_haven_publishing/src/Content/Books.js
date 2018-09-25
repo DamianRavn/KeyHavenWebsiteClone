@@ -36,6 +36,7 @@ class Books extends React.Component
                 <Cart
                 CartList = {this.props.CartList}
                 RemoveFromBasket = {this.props.RemoveFromBasket}
+                RemoveSingleItemFromBasket = {this.props.RemoveSingleItemFromBasket}
                 />
                 </div>
             </div>

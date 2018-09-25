@@ -65,6 +65,11 @@ class App extends Component
       }
     }
   }
+  UpdateLocalStorageCartList(newList)
+  {
+    localStorage.setItem("CartList",JSON.stringify(newList));
+  }
+
   AddToBasket(object)
   {
     const newCartList = [... this.state.CartList, object];
@@ -74,7 +79,7 @@ class App extends Component
       CartList: [...newCartList]
     })
     )
-    localStorage.setItem("CartList",JSON.stringify(newCartList));
+    this.UpdateLocalStorageCartList(newCartList);
   }
   RemoveFromBasket(isbn)
   {
@@ -87,7 +92,21 @@ class App extends Component
         })
     )
 
-    localStorage.setItem("CartList",JSON.stringify(newCartList));
+    this.UpdateLocalStorageCartList(newCartList);
+  }
+  RemoveSingleItemFromBasket(isbn)
+  {
+    const i = this.state.CartList.findIndex(item => item.isbn === isbn);
+    const newCartList = [...this.state.CartList];
+    newCartList.splice(i, 1);
+
+    this.setState(
+      () =>
+      ({
+        CartList: [...newCartList]
+      })
+    )
+    this.UpdateLocalStorageCartList(newCartList);
   }
 
   render() 
@@ -104,6 +123,7 @@ class App extends Component
         CartList = {this.state.CartList}
         AddToBasket = {this.AddToBasket}
         RemoveFromBasket = {this.RemoveFromBasket}
+        RemoveSingleItemFromBasket = {this.RemoveSingleItemFromBasket}
         />
 
         {/*TODO: Footer */}

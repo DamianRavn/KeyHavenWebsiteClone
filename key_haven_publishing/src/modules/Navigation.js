@@ -16,6 +16,7 @@ export const Navigation = (props)=>
                     CartList = {props.CartList}
                     AddToBasket = {props.AddToBasket}
                     RemoveFromBasket = {props.RemoveFromBasket}
+                    RemoveSingleItemFromBasket = {props.RemoveSingleItemFromBasket}
                     />}
                     />
                 );

@@ -11,6 +11,9 @@ export const CartItem = (props)=>
                 <button 
                 onClick = {()=>{props.RemoveFromBasket(props.item.isbn)}}
                 >Remove from basket</button>
+                <button 
+                onClick = {()=>{props.RemoveSingleItemFromBasket(props.item.isbn)}}
+                >Remove single item</button>
             </div>
         </div>
     )

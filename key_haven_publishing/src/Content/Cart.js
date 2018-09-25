@@ -16,6 +16,7 @@ const Cart = (props)=>
                     key = {index}
                     item = {item}
                     RemoveFromBasket = {props.RemoveFromBasket}
+                    RemoveSingleItemFromBasket = {props.RemoveSingleItemFromBasket}
                     />
                     );
                 })}
