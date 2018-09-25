@@ -2,14 +2,43 @@ import React from "react";
 import {CartItem} from "../modules/CartItem";
 import ListDisplayChildren from "../modules/ListDisplayChildren";
 
+const consolidateList = items => 
+{
+    const list = {};
+    items.map(item => 
+    {
+        if (list[item.isbn]) 
+        {
+            list[item.isbn].quantity++;
+        } else 
+        {
+            list[item.isbn] = item;
+            list[item.isbn].quantity = 1;
+        }
+    });
+    return Object.values(list);
+};
+
+const getTotal = items => 
+{
+    const total = items.reduce((tot, item) => 
+    {
+        return tot + parseFloat(item.price) * item.quantity;
+    }, 0);
+    return total;
+};
+
 const Cart = (props)=>
 {
+    const cartList = consolidateList([...props.CartList]);
+    const total = getTotal(cartList);
     return(
         <div className="border mt-3 p-2">
+        <h5>Shopping Basket</h5>
             <ListDisplayChildren 
-            class_name = "d-flex flex-wrap"
+            class_name = "flex-wrap"
             >
-                {props.CartList.map((item, index )=> 
+                {cartList.map((item, index )=> 
                 {
                     return (
                     <CartItem
@@ -20,6 +49,9 @@ const Cart = (props)=>
                     />
                     );
                 })}
+                <div className="text-right border-top">
+                    <strong>Total: kr. {total.toFixed(2)}</strong>
+                </div>
             </ListDisplayChildren>
         </div>
         
