@@ -10,11 +10,13 @@ import autobind from 'class-autobind';
 
 class NavigationObject
 {
-  constructor(link, name, content)
+  constructor(link = "/", name = "Home", content = Home, functions = {}, lists = {}, )
   {
     this.link = link;
     this.name = name;
     this.content = content;
+    this.lists = lists;
+    this.functions = functions;
   }
 }
 
@@ -26,21 +28,6 @@ class App extends Component
     autobind(this);
     this.state=
     {
-      NavBarList: [
-        new NavigationObject("/", "Home", Home),
-        new NavigationObject("/books", "Books", Books),
-        new NavigationObject("/reviews", "Reviews", Reviews),
-        /*{link: "/conferences", name: "Conferences", content: Home},
-        {link: "/about", name: "About", content: Home},
-        {link: "/keep-up-to-date", name: "Keep up to date", content: Home},*/
-      ],
-     
-      NavHeaderList: [
-        new NavigationObject("/login", "Login", Home),
-        new NavigationObject("/contact", "Contact", Home),
-        new NavigationObject("/cart", "Cart", Cart),
-      ],
-
       CartList: [],
     }
   }
@@ -111,19 +98,25 @@ class App extends Component
 
   render() 
   {
+    const NavBarList = [
+      new NavigationObject("/", "Home", Home, {AddToBasket: this.AddToBasket}),
+      new NavigationObject("/books", "Books", Books, {AddToBasket: this.AddToBasket}, {CartList: this.state.CartList}),
+      new NavigationObject("/reviews", "Reviews", Reviews),
+    ];
+    const NavHeaderList= [
+      new NavigationObject("/login", "Login", Home),
+      new NavigationObject("/contact", "Contact", Home),
+      new NavigationObject("/cart", "Cart", Cart, {AddToBasket: this.AddToBasket, RemoveFromBasket: this.RemoveFromBasket, RemoveSingleItemFromBasket: this.RemoveSingleItemFromBasket}, {CartList: this.state.CartList}),
+    ];
     return (
       <div className="App container-fluid">
         <Header 
-        NavHeaderList = {this.state.NavHeaderList}
-        NavBarList = {this.state.NavBarList}
+        NavHeaderList = {NavHeaderList}
+        NavBarList = {NavBarList}
         />
         
         <Navigation
-        NavList = {[...this.state.NavBarList, ...this.state.NavHeaderList]}
-        CartList = {this.state.CartList}
-        AddToBasket = {this.AddToBasket}
-        RemoveFromBasket = {this.RemoveFromBasket}
-        RemoveSingleItemFromBasket = {this.RemoveSingleItemFromBasket}
+        NavList = {[...NavBarList, ...NavHeaderList]}
         />
 
         {/*TODO: Footer */}

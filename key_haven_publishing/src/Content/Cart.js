@@ -30,7 +30,7 @@ const getTotal = items =>
 
 const Cart = (props)=>
 {
-    const cartList = consolidateList([...props.CartList]);
+    const cartList = consolidateList([...props.lists.CartList]);
     const total = getTotal(cartList);
     return(
         <div className="border mt-3 p-2">
@@ -44,8 +44,8 @@ const Cart = (props)=>
                     <CartItem
                     key = {index}
                     item = {item}
-                    RemoveFromBasket = {props.RemoveFromBasket}
-                    RemoveSingleItemFromBasket = {props.RemoveSingleItemFromBasket}
+                    RemoveFromBasket = {props.functions.RemoveFromBasket}
+                    RemoveSingleItemFromBasket = {props.functions.RemoveSingleItemFromBasket}
                     />
                     );
                 })}

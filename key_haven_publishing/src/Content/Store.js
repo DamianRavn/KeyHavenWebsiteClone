@@ -15,8 +15,7 @@ const Store = (props)=>
                         <StoreItems 
                         key = {bookItem.isbn}
                         BookObject = {bookItem}
-                        CartList = {props.CartList}
-                        AddToBasket = {props.AddToBasket}
+                        AddToBasket = {props.functions.AddToBasket}
                         />
                     );
                 })}

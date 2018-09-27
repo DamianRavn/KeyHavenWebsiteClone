@@ -13,10 +13,8 @@ export const Navigation = (props)=>
                     exact path ={page.link} 
                     /*render allows attributes to be given to the content*/
                     render = {() => <page.content
-                    CartList = {props.CartList}
-                    AddToBasket = {props.AddToBasket}
-                    RemoveFromBasket = {props.RemoveFromBasket}
-                    RemoveSingleItemFromBasket = {props.RemoveSingleItemFromBasket}
+                    lists = {page.lists}
+                    functions = {page.functions}
                     />}
                     />
                 );
